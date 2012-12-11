@@ -54,6 +54,11 @@ Blog::Application.routes.draw do
       match "login", :on => :collection
       match "post_media", :on => :collection
   end
+  
+  resources :follows
+  
+  match "follows/create" => "follows#create"
+  
   root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"

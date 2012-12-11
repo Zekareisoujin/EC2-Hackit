@@ -1,0 +1,21 @@
+<h1>Listing followship</h1>
+ 
+<table>
+  <tr>
+    <th>Follower</th>
+    <th>Followee</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+<% @follows.each do |follow| %>
+  <tr>
+    <td><%= follow.follower_id %></td>
+    <td><%= follow.followee_id %></td>
+  </tr>
+<% end %>
+</table>
+ 
+<br />
+ 
