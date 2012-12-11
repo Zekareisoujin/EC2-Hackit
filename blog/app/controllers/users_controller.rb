@@ -42,10 +42,27 @@ class UsersController < ApplicationController
            end
        end
    end
+   def new_post
+       @post = Post.new
+       respond_to do |format|
+           format.html
+       end
+   end
    def post_media
        @post = Post.new(params[:post])
+       user_id = params[:user_id]
+       u = User.where("id = ?",user_id)
        respond_to do |format|
-           format.html { render :text => "yay" }
+           if u.any?
+               @post.user_id = user_id
+               if @post.save
+                   format.html { render :json => @post }
+               else
+                   format.html { render :json => @post.errors }
+               end
+           else
+               format.html { render :text => "invalid user" }
+           end
        end
    end
    private 
