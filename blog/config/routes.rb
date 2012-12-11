@@ -56,9 +56,10 @@ Blog::Application.routes.draw do
   end
   
   resources :follows
-  
+
   match "follows/create" => "follows#create"
-  
+  match "follows/destroy" => "follows#destroy"
+ 
   root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"

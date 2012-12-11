@@ -50,8 +50,6 @@ class UsersController < ApplicationController
    end
    private 
        def authenticate
-           authenticate_or_request_with_http_token do |token, options|
-               token == TOKEN
-           end
+           render :status => :forbidden, :text => "unauthorized" unless params[:auth_token] == Blog::Application::TOKEN
        end
 end

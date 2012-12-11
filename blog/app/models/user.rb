@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   validates :password, :presence => true,
                        :length => { :minimum => 5 }
 					   
-  has_many :follows
+  has_many :follows, foreign_key: "follower_id"
   has_many :followees, :through => :follows, :source => :followee
-  has_many :inverse_follows, :class_name => "Follow", :foreign_key => "follower_id"
-  has_many :followers, :through => :inverse_follows, :source => :follower
+  has_many :inverse_follows, class_name: "Follow", foreign_key:  "followee_id"
+  has_many :followers, :through => :inverse_follows, :source => :user
 end

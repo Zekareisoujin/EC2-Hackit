@@ -1,6 +1,6 @@
 class Follow < ActiveRecord::Base
-  #attr_accessible :follower_id, :followee_id
-  belongs_to :user
+  attr_accessible :follower_id, :followee_id
+  belongs_to :user, :foreign_key => "follower_id"
   belongs_to :followee, :class_name => "User", :foreign_key => "followee_id"
   
 #  def new(follower_id, followee_id)
