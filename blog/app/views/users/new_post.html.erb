@@ -1,0 +1,27 @@
+<h1>New post</h1>
+ 
+<html>
+	<form action="http://localhost:3000/users/post_media?auth_token=secret_token" method="post">
+    <label for="post_name">Userid</label><br />
+    <input id="post_name" name="user_id" size="30" type="text" /><br>
+
+
+    <label for="post_password">Description</label><br />
+    <input id="post_password" name="post[description]" size="30" type="text" /><br>
+
+
+    <label for="post_date_of_birth">file_url</label><br />
+    <input id="post_date_of_birth" name="post[file_url]" size="30" type="text" /><br>
+	<label for="lat">Latitude</label><br/>
+	<input id="lat" name="post[loc_lat]" size="30" type="text" /><br>
+	<label for="long">Longitude</label><br/>
+	<input id="long" name="post[loc_long]" size="30" type="text" /><br>
+	<label for="scope">Scope</label><br/>
+	<input id="scope" name="post[scope]" size="30" type="text" /><br>
+	<label for="title">title</label><br/>
+	<input id="title" name="post[title]" size="30" type="text" /><br>
+	<input id=auth_token value=secret_token type='hidden'/>
+    <input name="commit" type="submit" value="Create post" />
+
+</form>
+</html>
